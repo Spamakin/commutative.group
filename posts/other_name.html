@@ -1,0 +1,313 @@
+<!-- POSTS-START.HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../styles/posts-commgroup.css" />
+<title>A Group by Any Other Name</title></head>
+
+<body>
+<header>
+<h1 id="doc_title"><a href="../index.html">commutative.group</a></h1>
+</header>
+
+<div class="wrapper">
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<!-- POSTS-START.HTML -->
+
+<div class="titlepage">
+<h1>A Group by Any Other Name</h1>
+<p class="date">2024–01–01</p>
+</div>
+<p>Groups are one of the most common structures in all of mathematics. They appear in many fields even outside of algebra such as differential topology and combinatorics, and have applications in areas such as chemistry and computational complexity theory. However, what defines a group, and how much play is there in this definition? First, I’ll define a group as you may have seen before. </p>
+<p><div class="defn_thmwrapper theorem-style-plain" id="defn:grp">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">1</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> A <em>group</em> is defined as a set of elements \(G\) along with an operation \(\cdot \) satisfying the following <em>axioms</em>: </p>
+<ol class="enumerate">
+  <li><p><em>Associativity</em>: For any \(x, y, z \in G\), we have that \((x \cdot y) \cdot z = x \cdot (y \cdot z)\); </p>
+</li>
+  <li><p><em>Identity</em>: There exists an element \(e \in G\) which we call the identity such that for any \(x \in G\), \(e \cdot x = x = x \cdot e\); </p>
+</li>
+  <li><p><em>Inverse</em>: For any \(x \in G\), there exists \(x^{-1} \in G\) such that \(x \cdot x^{-1} = e = x^{-1} \cdot x\). </p>
+</li>
+</ol>
+
+  </div>
+</div> </p>
+<p>Writing the \(\cdot \) is annoying so from now on I’ll adopt the tradition of writing \(x \cdot y\) as \(xy\). Similarly, I will use superscripts such as \(x^{2} = xx\). Although the definition of a group technically only includes a single binary operation \(\cdot \) taking two elements of \(G\) and producing a new element in \(G\), we often think about inversion of an element, \(x \mapsto x^{-1}\), as an operation in its own right. </p>
+<h2 id="a0000000002">A Slight Relaxation</h2>
+<p>If we take a look at the Identity axiom in a group \(G\), we notice that it is two-sided. For any \(x \in G\), we have that identity \(e\) satisfies \(ex = x = xe\). What if we relaxed this to a right-sided version? Define a right-handed version of the Identity axiom where \(e\) is the element such that for any \(x \in G\), we just have that \(xe = x\). In fact, let’s do the same for the Inverse axiom as well. It doesn’t really make sense to do this for Associativity since that’s about three elements being operated on. </p>
+<p><div class="defn_thmwrapper theorem-style-plain" id="defn:rh-grp">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">2</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> A <em>right-handed</em> group is a set \(R\) with an operation \(\cdot \) such that </p>
+<ol class="enumerate">
+  <li><p><em>Associativity</em>: Same as in <a href="other_name.html#defn:grp">Definition 1</a>; </p>
+</li>
+  <li><p><em>RH-Identity</em>: There exists an identity element \(e \in G\) such that for any \(x \in G\), \(xe = x\); </p>
+</li>
+  <li><p><em>RH-Inverse</em>: For any \(x \in G\), there exists \(x^{-1} \in G\) such that \(x \cdot x^{-1} = e\). </p>
+</li>
+</ol>
+
+  </div>
+</div> </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thrm:rh-grp_is_grp">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">3</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Every right-handed group \(R\) is also a group. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000003">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Clearly every group is also a right-handed group. So I will not write out that portion of the proof. </p>
+<p>Let \(R\) be a right-handed group. We need to show that the axioms Associativity, RH-Identity, and RH-Inverse in <a href="other_name.html#defn:rh-grp">Definition 2</a> imply the normal two-sided Identity and Inverse axioms in <a href="other_name.html#defn:grp">Definition 1</a>. First we show that any element \(a \in R\) satisfying \(a^{2} = a\) must be the right-handed identity element \(e\). Clearly the identity satisfies this with \(e^{2} = ee = e\). If \(a\) is such an element, then it has a right-inverse \(a^{-1}\) where \(a a^{-1} = e\). Thus, we have that </p>
+<div class="displaymath" id="a0000000004">
+  \[  a = ae = a a a^{-1} = a^{2} a^{-1} = a a^{-1} = e  \]
+</div>
+<p> and \(a = e\). </p>
+<p>Then, for any element \(x \in R\), we know it has a right inverse \(x^{-1}\) satisfying \(x x^{-1} = e\). Thus, for all \(x \in R\) we have that </p>
+<div class="displaymath" id="a0000000005">
+  \[  x x^{-1} x x^{-1} = \left(x x^{-1}\right)^{2} = e^{2} = e = x x^{-1}.  \]
+</div>
+<p> Now consider \(x^{-1} x x^{-1} x\). We have that </p>
+<div class="displaymath" id="a0000000006">
+  \begin{align*}  x^{-1} x x^{-1} x & = x^{-1} \left( x x^{-1} \right) x x^{-1} x \\ & = x^{-1} x x^{-1} x x^{-1} x \\ & = x^{-1} \left(x x^{-1} x x^{-1}\right) x \\ & = x^{-1} \left(x x^{-1}\right) x = x^{-1} x. \end{align*}
+</div>
+<p> But now we have that \(x^{-1} x x^{-1} x = x^{-1} x\). By the above, this means that \(x^{-1} x = e\) and that \(x^{-1}\) is not just a right-handed inverse, but also a left-handed inverse. </p>
+<p>Note that nowhere in the above proof did we assume that \(e\) was a left-handed identity, just that \(e\) is a right-handed identity. We now prove that \(e\) is also a left-handed identity. Let \(x \in R\). We know that \(x\) has a (left and right)-inverse \(x^{-1}\) so \(x^{-1} x = e = x x^{-1}\). Since \(x e = x\), we have that </p>
+<div class="displaymath" id="a0000000007">
+  \[  x = x e = x x^{-1} x = e x.  \]
+</div>
+<p> Thus, \(e\) is also a left-handed identity. Overall we have shown that \(R\) satisfies all axioms of a group given in <a href="other_name.html#defn:grp">Definition 1</a> meaning \(R\) is a group. <span class="qed">□</span></p>
+
+  </div>
+</div>
+<p>Pretty much the same proof works if you define the analogous left-handed group and want to show that left-handed groups are also equivalent to groups. Thus, there is no distinction between groups and their left or right counterparts. While <a href="other_name.html#defn:rh-grp">Definition 2</a> is different to <a href="other_name.html#defn:grp">Definition 1</a>, morally it doesn’t feel that different. Can we redefine groups in more interesting ways? It turns out you can! I will show you how groups can be defined in terms of equations (even a single equation), in terms of a new operation, and even in terms of literal abstract nonsense. </p>
+<h2 id="a0000000008">Axioms are Equations</h2>
+<p>One major motivation of studying group theory is studying algebraic equations. Following this motivation, we can formulate groups as satisfying certain equations. This result is not from anywhere in particular and is sort of a <a href ="https://en.wikipedia.org/wiki/Mathematical_folklore">folklore</a> result. <div class="defn_thmwrapper theorem-style-plain" id="defn:eq-grp">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">4</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> An <em>equational group</em> is a set \(E\) with elements satisfying the following axioms: </p>
+<ol class="enumerate">
+  <li><p><em>E-Product</em>: For every element \(x, y \in E\) there exists a unique element \(xy \in E\); </p>
+</li>
+  <li><p><em>E-Associativity</em>: For every \(x, y, z \in E\), the equation \(a(bc) = (ab)c\) is true; </p>
+</li>
+  <li><p><em>E-Solution</em>: For every \(x, y \in E\), there exists at least one element \(a\) and one element \(b\) in \(E\) such that the equations \(xa = y\) and \(bx = y\) are true. </p>
+</li>
+</ol>
+
+  </div>
+</div> </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="a0000000009">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">5</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>Equational groups are equivalent to groups. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000010">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Consider a group \(G\). By the definition of product in a group, \(G\) satisfies the axiom E-Product. Similarly, multiplication in a group \(G\) is associative and so \(G\) satisfies the axiom E-Associativity. Finally, let \(x, y \in G\). Then \(a = x^{-1}y\) and \(b = yx^{-1}\), both of which exist since \(x\) and \(y\) exist, shows that \(G\) satisfies the E-Solution. Thus groups are also equational groups. </p>
+<p>Now let \(E\) be an equational group. Note that the definition of equational group does not explicitly define an operation like in the definition of group (<a href="other_name.html#defn:grp">Definition 1</a>). We will give \(E\) an operation using axiom E-Product to define \(x \cdot y = xy\) for all \(x, y \in E\). This is sufficient since E-Product not only says \(xy\) exists, but is unique meaning our operation is a well-defined function. This product satisfies the axiom Associativity of a group since we have the axiom E-Associativity. </p>
+<p>We want to show that certain elements, identities and inverses, exist. These elements satisfy certain equations as defined, so we should use the axiom E-Solution. To show that the identity element exists, let \(x, y \in E\). Then by E-Solution, there exists left and right identity elements \(a\) and \(b\) such that \(xa = x\) and \(by = y\). Similarly, there exists elements \(a'\) and \(b'\) such that \(ya' = a\) and \(b'x = b\). Thus </p>
+<div class="displaymath" id="a0000000011">
+  \[  b = b'x = b'xa = ba = bya' = ya' a.  \]
+</div>
+<p> Thus, \(a = b\) is our multiplicative identity element, which we will now call \(e\). This is the identity element for all of \(E\) since \(x\) and \(y\) were arbitrary. The intutition for this proof occurs in the middle, with \(ba\), reflecting that \(e^{2} = e\). We saw this in the proof of <a href="other_name.html#thrm:rh-grp_is_grp">Theorem 3</a>. </p>
+<p>To see that inverses exist, we immediately have by E-Solution that for \(x \in E\), there exists elements \(a\) and \(b\) such that \(xa = e = bx\). Thus we have that </p>
+<div class="displaymath" id="a0000000012">
+  \[  b = be = bxa = ea = a.  \]
+</div>
+<p> Thus, left and right inverses for each element in \(E\) exist and are equivalent yielding that every element in \(E\) has an inverse \(x^{-1} = a = b\). Again the intuition here is that \(x^{-1} x x^{-1} = x\) by grouping with parentheses either the left two elements or the right two elements. Overall we have that groups are equivalent to equational groups. <span class="qed">□</span></p>
+
+  </div>
+</div>
+<h2 id="a0000000013">…is Multiplication is Division is Multiplication is Division is …</h2>
+<p>Typically, the definition of the binary operation \(\cdot \colon G \times G \to G\) for a group is thought of in a multiplicative manner: combine two elements \(x\) and \(y\) to get a new one \(xy\). But can we define groups a divisive manner: tearing \(y\) off of \(x\) and getting an element \(z\) representing whatever is leftover? Since we have notions of both multiplication and inversion in our normal definition (<a href="other_name.html#defn:grp">Definition 1</a>) of a group, we can indeed do this. I found this definition during my research for this post from this <a href ="https://mathoverflow.net/questions/277938/wieners-axiomatization-of-the-group-law-based-on-division">MathOverflow</a> post. </p>
+<p><div class="defn_thmwrapper theorem-style-plain" id="defn:div-grp">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">6</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> A <em>Division Group</em> is a set \(D\) along with an operation \(/\) satisfying </p>
+<ol class="enumerate">
+  <li><p><em>D-Inversion</em>: There exists a unique element \(e \in D\) such that for all \(x \in D\), we have that \(x / x = e\); </p>
+</li>
+  <li><p><em>D-Identity</em>: For all \(x \in D\) and the element \(e\), we have that \(x / e = x\); </p>
+</li>
+  <li><p><em>D-Cancellation</em>: For any \(x, y, z \in D\), We have that \((x / z) / (y / z) = x / y\). </p>
+</li>
+</ol>
+
+  </div>
+</div> </p>
+<p><div class="theorem_thmwrapper theorem-style-plain" id="thrm:div-grp_is_grp">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">7</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p> Division groups are equivalent to groups. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000014">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Showing that a group is a division group is simple. Intuitively, division is just multiplication by the inverse and so we can take all of the axioms of <a href="other_name.html#defn:div-grp">Definition 6</a> and replace \(x / y\) with \(x y^{-1}\) and see that the group axioms imply the division group axioms. </p>
+<p>Now suppose we have a division group \(D\). We first need to translate from \(/\) to the operations multiplication and inversion. Let \(xy = x / (e / y)\) and \(x^{-1} = e / x\) for all \(x, y \in D\). Then we also claim that our multiplicative identity is \(e \in D\). Then all that is left is to check that the axioms in <a href="other_name.html#defn:grp">Definition 1</a> are satisfied by this translation. These are all just computations of various levels of tedium and juggling of parentheses. Let \(x, y, z \in D\). For associativity we have </p>
+<div class="displaymath" id="a0000000015">
+  \begin{align*}  (xy)z & = (x / (e / y)) / (e / z) \tag {Translation} \\ & = (x / (e / y)) / ((e / z) / e) \tag {D-Identity} \\ & = (x / (e / y)) / (((e / z) / y) / (e / y)) \tag {D-Cancellation} \\ & = x / ((e / z) / y) \tag {D-Cancellation} \\ & = x / (((e / z) / (e / z)) / (y / (e / z))) \tag {D-Cancellation} \\ & = x / (e / (y / (e / z))) \tag {D-Inversion} \\ & = x(yz). \tag {Translation} \end{align*}
+</div>
+<p> Fortunately, proving identity and existence of inversion is simpler: </p>
+<div class="displaymath" id="a0000000016">
+  \[  ex = e / (e / x) = (x / x) / (e / x) = x / e = x = x / e = x / (e / e) = xe  \]
+</div>
+<div class="displaymath" id="a0000000017">
+  \[  x x^{-1} = x / (e / (e / x)) = x / ((x / x) / (e / x)) = x / (x / e) = x / x = x = (e / x) / (e / x) = x^{-1} x.  \]
+</div>
+<p> Thus, division groups are equivalent to groups. </p>
+
+  </div>
+</div>
+<p> An ever-so-slightly shorter proof would have been proving directly that division groups are equivalent to right-handed groups and then invoking the fact that right-handed groups are equivalent to groups. </p>
+<h2 id="a0000000018">One Law to Rule Them All</h2>
+<p>There is a way to combine ideas from the previous two notions and use a single equation to define what a group is using division. This is due to Graham Higman and B.H. Neumann in their paper <a href ="https://doi.org/10.5486/pmd.1952.2.3-4.10"><i class="itshape">Groups as groupoids with one law</i></a>. However, I will build off of an easier to understand exposition from Neumann’s paper <a href ="https://doi.org/10.1017/S0004972700006912"><i class="itshape">Another Single Law for Groups</i></a>. First a primer on <a href ="https://en.wikipedia.org/wiki/Reverse_Polish_notation"><em>reverse Polish notation</em></a>. This notation is common in the early study of these axiomatic systems, and so I will use it here. It is a way of writing functions and their inputs without parentheses. If we wanted to notate the multiplication of two numbers \(x\) and \(y\), rather than writing \(x \cdot y\) in what is called <em>infix notation</em>, we would write \(x y \cdot \) for reverse Polish notation. If you know how many arguments your functions take, then this removes the need for parentheses. </p>
+<p>In a group, \(x / y = x y^{-1}\) where the operation right division \(/\) is from <a href="other_name.html#defn:div-grp">Definition 6</a>. Here we are using that division groups are equivalent to groups (<a href="other_name.html#thrm:div-grp_is_grp">Theorem 7</a>). We will notate right division, multiplication, and inversion in reverse Polish notation with the letters \(\rho \), \(\mu \), and \(\iota \): </p>
+<div class="displaymath" id="a0000000019">
+  \begin{align*}  x y \rho = x / y, & &  x y \mu = x \cdot y, & &  x \iota = x^{-1}. \end{align*}
+</div>
+<p> Verify for yourself that the following identities hold. </p>
+<div class="displaymath" id="a0000000020">
+  \begin{align*}  x \iota = x x \rho x \rho , & &  x y \mu = x y y \rho y \rho \rho . \end{align*}
+</div>
+<p> It will be easier to see if you notice that \(e = x x \rho \) and use some parentheses. </p>
+<p>Now imagine a set \(G\) with the operation right division \(\rho \), outside of all context of inversion and multiplication. Then we have the following theorem which is the main result from Graham Higman and B.H. Neumann’s work: <div class="theorem_thmwrapper theorem-style-plain" id="a0000000021">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">8</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>A set \(G\) with right division \(\rho \) satisfying the following for all \(x, y, z \in G\) is a group: </p>
+<div class="displaymath" id="a0000000022">
+  \[  x x x \rho y \rho z \rho x x \rho x \rho z \rho \rho \rho = y.  \]
+</div>
+
+  </div>
+</div> I will omit the proof because it is far far too long to repeat. </p>
+<h2 id="a0000000023">Abstract Nonsense</h2>
+<p>Category theory, also known as <a href ="https://en.wikipedia.org/wiki/Abstract_nonsense#History">abstract nonsense</a> by many, is a powerful framework for understanding various structures. A category is a collection of objects and functions, called morphisms, between these objects. Formally, little other structures exists: <div class="defn_thmwrapper theorem-style-plain" id="defn:cat">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">9</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> A category \(\textbf{C}\) is a collection of objects \(\operatorname{ob}(\textbf{C})\) and morphisms \(\hom (\textbf{C})\) between these objects. If we have objects \(A, B \in \operatorname{ob}(\textbf{C})\), a morphism \(f\) from \(A\) to \(B\) is denoted \(f\colon A \to B\). Intuitively morphisms are functions, but they don’t have to be! We also have an operation \(\circ \) called composition where if \(f\colon A \to B\) and \(g\colon B \to C\) are morphisms, then we have a morphism \(g \circ f\colon A \to B\) where we apply the morphism \(g\) after \(f\). This composition is associative, meaning that if we also have a morphism \(h\colon C \to D\), then \((h \circ g) \circ f = h \circ (g \circ f)\). We also require that a special identity morphism \(\operatorname{id}_{A}\) exists for every object \(A \in \operatorname{ob}(\textbf{C})\) such that \(\operatorname{id}_{B} \circ f = f = f \circ \operatorname{id}_{A}\) for every morphism \(f\colon A \to B\). </p>
+
+  </div>
+</div> </p>
+<p>This definition is somewhat reminiscent of a group! For example, the proof that the identity morphism in a category is unique for each object is very much the same as the proof that the identity in a group is unique. Consider a group \(G\) and an element \(x \in G\). Then we have a group homomorphism called left multiplication by \(x\): </p>
+<div class="displaymath" id="a0000000024">
+  \begin{align*}  L_{x}\colon G & \to G \\ g & \mapsto xg \end{align*}
+</div>
+<p> Right multiplication by \(x\) is defined in the way you expect. </p>
+<p>This allows us to view a single group in a category-theoretic manner. Fix your favorite group \(G\). Consider the not-yet-proven-to-be-category \(\textbf{G}\) where the only object is \(G\), so \(\operatorname{ob}(\textbf{G}) = \{  G \} \). Then let \(\hom (\textbf{G})\) be all left-multiplications and right-multiplications in \(G\). So \(\hom (\textbf{G})\) is the set of all \(L_{x}\colon G \to G\) and \(R_{x}\colon G \to G\) for all \(x \in G\). I claim that \(\textbf{G}\) is a category. </p>
+<p>Composition of morphisms is just multiplication by two (or more) elements at once rather than just one element. For any elements \(x, y \in G\) we have \(L_{x} \circ L_{y} = L_{xy}\) and \(R_{x} \circ R_{y} = R_{yx}\). Associativity of composition then follows from the fact that multiplication in a group is associative. As one may expect, we have that the identity morphism for \(G\), \(\operatorname{id}_{G}\), is \(L_{e} = R_{e}\). Indeed, composing with \(L_{e}\) before or after \(L_{x}\) for any \(x \in G\) yields \(L_{x}\) and similarly for \(R_{x}\). Thus, we have a category. </p>
+<p>Notice, however, that we did not use the fact that every element \(x \in G\) has an inverse \(x^{-1}\). We have that \(L_{x} \circ L_{x^{-1}} = L_{e} = R_{x} \circ R_{x^{-1}}\). Thus, every one of our morphisms in \(\textbf{G}\) is an <em>isomorphism</em>: every morphism has an inverse. Let us take the definition of a category (<a href="other_name.html#defn:cat">Definition 9</a>) and add the requirement that inverses exist. <div class="defn_thmwrapper theorem-style-plain" id="defn:groupoid">
+  <div class="defn_thmheading">
+    <span class="defn_thmcaption">
+    Definition
+    </span>
+    <span class="defn_thmlabel">10</span>
+  </div>
+  <div class="defn_thmcontent">
+  <p> A category \(\textbf{G}\) where for every morphism \(f\colon A \to B\), there exists a morphism \(f^{-1}\colon B \to A\) such that \(f^{-1} \circ f = \operatorname{id}_{A}\) and \(f \circ f^{-1} = \operatorname{id}_{B}\) is called a groupoid. </p>
+
+  </div>
+</div> Above we have defined a group as a groupoid with one object. </p>
+<p>In fact, we can use this to construct groups, rather than just identifying groups as groupoids. Lets construct a new groupoid \(\textbf{S}_{n}\). If we let our single object be \(\operatorname{ob}(\textbf{S}_{n}) = \left\{ ~ [n]~ \right\}  = \left\{ ~ \{ 1, \ldots , n\} ~ \right\} \) and let \(\hom (\textbf{S}_{n})\) be all possible permutation of \([n]\) then we have constructed the symmetric group on \(n\) elements, \(S_{n}\), as a groupoid. If you know a little algebraic topology, then you can also construct the fundamental group of a topological space \(X\) with a fixed base point \(x \in X\) by considering your morphisms as the classes of loops \(x \to x\). Groupoids in general are cool objects which nicely generalize properties of groups, but perhaps I’ll discuss that another day. </p>
+<p> <small class="small">View this as a <a href ="posts/other_name.pdf">PDF</a>.</small> </p>
+
+<!-- POSTS-END.HTML  -->
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/plastex.js"></script>
+<script type="text/javascript" src="../js/svgxuse.js"></script>
+</body>
+</html>
+<!-- POSTS-END.HTML  -->
+
